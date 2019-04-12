@@ -4,30 +4,22 @@
 <head>
   <meta charset="utf-8">
   <title>TODO</title>
-  <style media="screen">
-    body {
-      background-color: papayawhip;
-    }
-
-    h1.weekend {
-      color: #FF00FF;
-    }
-
-    h1.weekday {
-      color: #34DDDD;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-  <h1><%= kindOfDay %></h1>
+  <div class="box" id="heading"><h1><%= kindOfDay %></h1></div>
 
-<ul>
+  <ul>
     <% for (var i = 0; i < newListItems.length; i++) { %>
-      <li><%= newListItems[i] %></li>
+    <li><%= newListItems[i] %></li>
     <% } %>
-</ul>
+  </ul>
+
+  
+
+  <!-- <%# Initially the loop did not work because I used a scriptlet (without the equal sign) tag to render the value of the array index! %> -->
 
   <form name="todoList" action="/" method="post">
     <input type="text" name="newItem" placeholder="Add a todo">

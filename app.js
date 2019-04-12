@@ -6,8 +6,10 @@ const app = express();
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(express.static("public"));
 
 app.set("view engine", "ejs");
+
 
 var item = "";
 var todoList = [];
@@ -37,9 +39,8 @@ app.post("/", function(req, res) {
     item = req.body.newItem;
 
     todoList.push(item);
-    // console.log(item);
-    // Capture the new item, redirect to app.get()
-    // But... error because 'item' is not defined, since it only exists inside this post function #Scope
+
+    // Redirect to app.get() for rendering
     res.redirect("/");
 });
 
