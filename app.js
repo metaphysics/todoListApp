@@ -27,6 +27,11 @@ app.get("/", function(req, res) {
 
 });
 
+app.post("/", function(req, res) {
+    var newTodo = req.body.todoListInput;
+    // Append as last list item
+});
+
 
 app.listen(3000, function() {
   console.log("Server started on port 3000...");
