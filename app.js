@@ -9,6 +9,8 @@ app.use(bodyParser.urlencoded({
 
 app.set("view engine", "ejs");
 
+var item = "";
+var todoList = [];
 
 app.get("/", function(req, res) {
 
@@ -25,13 +27,16 @@ app.get("/", function(req, res) {
   //EJS
   res.render("list", {
     kindOfDay: day,
-    newListItem: item
+    newListItem: item,
+    todoList: todoList
   });
 
 });
 
 app.post("/", function(req, res) {
-    var item = req.body.newItem;
+    item = req.body.newItem;
+
+    todoList.push(item);
     // console.log(item);
     // Capture the new item, redirect to app.get()
     // But... error because 'item' is not defined, since it only exists inside this post function #Scope

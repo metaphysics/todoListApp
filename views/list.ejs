@@ -27,6 +27,15 @@
     <li><%= newListItem %></li>
   </ul>
 
+
+  <ul>
+    <% for (var i = 0; i < todoList.length; i++) { %>
+      <li><% todoList[i] %></li>
+    <% } %>
+  </ul>
+
+
+
   <form name="todoList" action="/" method="post">
     <input type="text" name="newItem" placeholder="Add a todo">
     <button type="submit" name="button">Add</button>
