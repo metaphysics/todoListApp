@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>TODO</title>
+  <style media="screen">
+    body {
+      background-color: papayawhip;
+    }
+
+    h1.weekend {
+      color: #FF00FF;
+    }
+
+    h1.weekday {
+      color: #34DDDD;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Use scriplet tags <%%> these work on a line-by-line basis -->
+
+  <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday") { %>
+  <h1 class="weekend"><%= kindOfDay %></h1>
+  <% } else { %>
+  <h1 class="weekday"><%= kindOfDay %></h1>
+  <% } %>
+
+</body>
+
+</html>
