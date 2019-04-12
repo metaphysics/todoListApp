@@ -6,7 +6,9 @@ const app = express();
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 app.set("view engine", "ejs");
+
 
 app.get("/", function(req, res) {
 
@@ -22,14 +24,18 @@ app.get("/", function(req, res) {
 
   //EJS
   res.render("list", {
-    kindOfDay: day
+    kindOfDay: day,
+    newListItem: item
   });
 
 });
 
 app.post("/", function(req, res) {
-    var newTodo = req.body.todoListInput;
-    // Append as last list item
+    var item = req.body.newItem;
+    // console.log(item);
+    // Capture the new item, redirect to app.get()
+    // But... error because 'item' is not defined, since it only exists inside this post function #Scope
+    res.redirect("/");
 });
 
 
