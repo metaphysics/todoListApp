@@ -27,11 +27,11 @@ app.get("/", function(req, res) {
   //EJS
   res.render("list", {
     kindOfDay: day,
-    newListItem: item,
-    todoList: todoList
+    newListItem: todoList
   });
 
 });
+
 
 app.post("/", function(req, res) {
     item = req.body.newItem;

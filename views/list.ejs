@@ -23,18 +23,15 @@
 
   <h1><%= kindOfDay %></h1>
 
-  <ul>
+  <!-- <ul>
     <li><%= newListItem %></li>
-  </ul>
+  </ul> -->
 
-
-  <ul>
-    <% for (var i = 0; i < todoList.length; i++) { %>
-      <li><% todoList[i] %></li>
+<ul>
+    <% for (var i = 0; i < newListItem.length; i++) { %>
+      <li><% newListItem[i] %></li>
     <% } %>
   </ul>
-
-
 
   <form name="todoList" action="/" method="post">
     <input type="text" name="newItem" placeholder="Add a todo">
