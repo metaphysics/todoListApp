@@ -27,7 +27,7 @@ app.get("/", function(req, res) {
   //EJS
   res.render("list", {
     kindOfDay: day,
-    newListItem: todoList
+    newListItems: todoList
   });
 
 });
