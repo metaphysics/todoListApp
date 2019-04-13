@@ -6,19 +6,22 @@ const app = express();
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
 
-var item = "";
-var todoList = [];
+//let item = "";
+let items = [];
+let workItems = [];
+
 
 app.get("/", function(req, res) {
 
-  var today = new Date();
+  let today = new Date();
 
-  var dateFormat = {
+  let dateFormat = {
     weekday: "long",
     day: "numeric",
     month: "long"
@@ -28,21 +31,35 @@ app.get("/", function(req, res) {
 
   //EJS
   res.render("list", {
-    kindOfDay: day,
-    newListItems: todoList
+    listTitle: day,
+    newListItems: items
   });
 
 });
 
-
 app.post("/", function(req, res) {
-    item = req.body.newItem;
+    let item = req.body.newItem;
 
-    todoList.push(item);
+    items.push(item);
 
     // Redirect to app.get() for rendering
     res.redirect("/");
 });
+
+
+app.get("/work", function(req, res) {
+  res.render("list", { listTitle: "Work List", newListItems: workItems });
+});
+
+app.post("/work", function(req, res) {
+  let item = req.body.newItem;
+
+  workItems.push(item);
+
+  res.redirect("/work");
+
+});
+
 
 
 app.listen(3000, function() {
